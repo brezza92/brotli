@@ -122,9 +122,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSharpBrotli\CSharpBrotli.csproj">
-      <Project>{50443cb1-3712-49a1-bbf8-91a31d0c4ba1}</Project>
-      <Name>CSharpBrotli</Name>
+    <ProjectReference Include="..\CSharpBrotli_Portable\CSharpBrotli_Portable.csproj">
+      <Project>{35741ece-938b-49cd-b23a-6b4dfb232273}</Project>
+      <Name>CSharpBrotli_Portable</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
