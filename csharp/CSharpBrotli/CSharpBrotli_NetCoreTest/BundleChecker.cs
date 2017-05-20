@@ -72,52 +72,55 @@ namespace CSharpBrotliTest
         public void Check()
         {
             string entryName = "";
-            ZipInputStream zipStream = new ZipInputStream(input);
-            try
+            using (ZipInputStream zipStream = new ZipInputStream(input))
             {
-                int entryIndex = 0;
-                ZipEntry entry = null;
-                int jobIndex = nextJob++;
-                while ((entry = zipStream.GetNextEntry()) != null)
+                try
                 {
-                    if (entry.IsDirectory)
+                    int entryIndex = 0;
+                    ZipEntry entry = null;
+                    int jobIndex = nextJob++;
+                    while ((entry = zipStream.GetNextEntry()) != null)
                     {
-                        continue;
-                    }
-                    if (entryIndex++ != jobIndex)
-                    {
+                        if (entry.IsDirectory)
+                        {
+                            continue;
+                        }
+                        if (entryIndex++ != jobIndex)
+                        {
+                            zipStream.CloseEntry();
+                            continue;
+                        }
+                        entryName = entry.Name;
+                        int dotIndex = entryName.IndexOf('.');
+                        string entryCrcString = (dotIndex == -1) ? entryName : entryName.Substring(0, dotIndex);
+                        long entryCrc = Convert.ToInt64(entryCrcString, 16);
+                        try
+                        {
+                            if (entryCrc != DecompressAndCalculateCrc(zipStream) && !sanityCheck)
+                            {
+                                throw new Exception("CRC mismatch");
+                            }
+                        }
+                        catch (IOException iox)
+                        {
+                            if (!sanityCheck)
+                            {
+                                throw new Exception("Decompression failed", iox);
+                            }
+                        }
                         zipStream.CloseEntry();
-                        continue;
+                        entryName = "";
+                        jobIndex = nextJob++;
                     }
-                    entryName = entry.Name;
-                    int dotIndex = entryName.IndexOf('.');
-                    string entryCrcString = (dotIndex == -1) ? entryName : entryName.Substring(0, dotIndex);
-                    long entryCrc = Convert.ToInt64(entryCrcString, 16);
-                    try
-                    {
-                        if (entryCrc != DecompressAndCalculateCrc(zipStream) && !sanityCheck)
-                        {
-                            throw new Exception("CRC mismatch");
-                        }
-                    }
-                    catch (IOException iox)
-                    {
-                        if (!sanityCheck)
-                        {
-                            throw new Exception("Decompression failed", iox);
-                        }
-                    }
-                    zipStream.CloseEntry();
-                    entryName = "";
-                    jobIndex = nextJob++;
+                    
                 }
-                zipStream.Close();
-                input.Close();
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+
         }
     }
 }

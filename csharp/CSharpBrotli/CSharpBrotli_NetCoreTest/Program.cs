@@ -1,27 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 namespace CSharpBrotliTest
 {
-    public partial class Form1 : Form
+    class Program
     {
-        public Form1()
+        static void Main(string[] args)
         {
-            InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string[] args = { "../../../test_data.zip" };
+            args = new string[] { "../test_data.zip" };
             CheckBundle(args);
             Console.WriteLine("decode test_data.zip successfully.");
         }
-
-        private void CheckBundle(string[] args)
+        static void CheckBundle(string[] args)
         {
             int argsOffset = 0;
             bool sanityCheck = false;

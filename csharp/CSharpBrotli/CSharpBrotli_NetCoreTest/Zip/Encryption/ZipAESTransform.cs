@@ -67,31 +67,32 @@ namespace ICSharpCode.SharpZipLib.Encryption
         public ZipAESTransform(string key, byte[] saltBytes, int blockSize, bool writeMode)
         {
             //in .net20 we don't support this
-
-#if NET20
             throw new NotSupportedException();
-#else
-            if (blockSize != 16 && blockSize != 32) // 24 valid for AES but not supported by Winzip
-                throw new Exception("Invalid blocksize " + blockSize + ". Must be 16 or 32.");
-            if (saltBytes.Length != blockSize / 2)
-                throw new Exception("Invalid salt len. Must be " + blockSize / 2 + " for blocksize " + blockSize);
-            // initialise the encryption buffer and buffer pos
-            _blockSize = blockSize;
-            _encryptBuffer = new byte[_blockSize];
-            _encrPos = ENCRYPT_BLOCK;
+#if NET20 || NETCORE
 
-            // Performs the equivalent of derive_key in Dr Brian Gladman's pwd2key.c
-            var pdb = new Rfc2898DeriveBytes(key, saltBytes, KEY_ROUNDS);
-            var rm = System.Security.Cryptography.aes;
-            rm.Mode = CipherMode.ECB;           // No feedback from cipher for CTR mode
-            _counterNonce = new byte[_blockSize];
-            byte[] byteKey1 = pdb.GetBytes(_blockSize);
-            byte[] byteKey2 = pdb.GetBytes(_blockSize);
-            _encryptor = rm.CreateEncryptor(byteKey1, byteKey2);
-            _pwdVerifier = pdb.GetBytes(PWD_VER_LENGTH);
-            //
-            _hmacsha1 = IncrementalHash.CreateHMAC(HashAlgorithmName.SHA1, byteKey2);
-            _writeMode = writeMode;
+           
+#else
+            //if (blockSize != 16 && blockSize != 32) // 24 valid for AES but not supported by Winzip
+            //    throw new Exception("Invalid blocksize " + blockSize + ". Must be 16 or 32.");
+            //if (saltBytes.Length != blockSize / 2)
+            //    throw new Exception("Invalid salt len. Must be " + blockSize / 2 + " for blocksize " + blockSize);
+            //// initialise the encryption buffer and buffer pos
+            //_blockSize = blockSize;
+            //_encryptBuffer = new byte[_blockSize];
+            //_encrPos = ENCRYPT_BLOCK;
+
+            //// Performs the equivalent of derive_key in Dr Brian Gladman's pwd2key.c
+            //var pdb = new Rfc2898DeriveBytes(key, saltBytes, KEY_ROUNDS);
+            //var rm = System.Security.Cryptography.aes;
+            //rm.Mode = CipherMode.ECB;           // No feedback from cipher for CTR mode
+            //_counterNonce = new byte[_blockSize];
+            //byte[] byteKey1 = pdb.GetBytes(_blockSize);
+            //byte[] byteKey2 = pdb.GetBytes(_blockSize);
+            //_encryptor = rm.CreateEncryptor(byteKey1, byteKey2);
+            //_pwdVerifier = pdb.GetBytes(PWD_VER_LENGTH);
+            ////
+            //_hmacsha1 = IncrementalHash.CreateHMAC(HashAlgorithmName.SHA1, byteKey2);
+            //_writeMode = writeMode;
 #endif
 
         }
