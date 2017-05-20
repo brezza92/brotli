@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Decode\BitReader.cs" />
-    <Compile Include="Decode\BritliInputStream.cs" />
+    <Compile Include="Decode\BrotliInputStream.cs" />
     <Compile Include="Decode\BrotliRuntimeExpression.cs" />
     <Compile Include="Decode\Context.cs" />
     <Compile Include="Decode\Decode.cs" />
