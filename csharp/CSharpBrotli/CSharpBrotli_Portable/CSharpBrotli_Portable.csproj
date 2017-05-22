@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35741ECE-938B-49CD-B23A-6B4DFB232273}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CSharpBrotli_Portable</RootNamespace>
+    <AssemblyName>CSharpBrotli_Portable</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CSharpBrotli\Decode\BitReader.cs">
+      <Link>Decode\BitReader.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\BrotliInputStream.cs">
+      <Link>Decode\BrotliInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\BrotliRuntimeExpression.cs">
+      <Link>Decode\BrotliRuntimeExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\Context.cs">
+      <Link>Decode\Context.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\Decode.cs">
+      <Link>Decode\Decode.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\Dictionary.cs">
+      <Link>Decode\Dictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\Huffman.cs">
+      <Link>Decode\Huffman.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\HuffmanTreeGroup.cs">
+      <Link>Decode\HuffmanTreeGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\IntBufferReader.cs">
+      <Link>Decode\IntBufferReader.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\Prefix.cs">
+      <Link>Decode\Prefix.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\RunningStage.cs">
+      <Link>Decode\RunningStage.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\State.cs">
+      <Link>Decode\State.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\Transform.cs">
+      <Link>Decode\Transform.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\Utils.cs">
+      <Link>Decode\Utils.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli\Decode\WordTransformType.cs">
+      <Link>Decode\WordTransformType.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+</Project>

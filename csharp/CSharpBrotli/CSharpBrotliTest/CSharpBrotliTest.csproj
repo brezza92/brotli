@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CSharpBrotliTest</RootNamespace>
     <AssemblyName>CSharpBrotliTest</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -19,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET20</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -34,19 +35,152 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BundleChecker.cs" />
+    <Compile Include="..\CSharpBrotli_NetCoreTest\BundleChecker.cs">
+      <Link>BundleChecker.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Checksum\Adler32.cs">
+      <Link>Zip\Checksum\Adler32.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Checksum\BZip2Crc.cs">
+      <Link>Zip\Checksum\BZip2Crc.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Checksum\Crc32.cs">
+      <Link>Zip\Checksum\Crc32.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Checksum\IChecksum.cs">
+      <Link>Zip\Checksum\IChecksum.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Core\FileSystemScanner.cs">
+      <Link>Zip\Core\FileSystemScanner.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Core\INameTransform.cs">
+      <Link>Zip\Core\INameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Core\IScanFilter.cs">
+      <Link>Zip\Core\IScanFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Core\NameFilter.cs">
+      <Link>Zip\Core\NameFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Core\PathFilter.cs">
+      <Link>Zip\Core\PathFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Core\StreamUtils.cs">
+      <Link>Zip\Core\StreamUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Core\WindowsPathUtils.cs">
+      <Link>Zip\Core\WindowsPathUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Encryption\PkzipClassic.cs">
+      <Link>Zip\Encryption\PkzipClassic.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Encryption\ZipAESStream.cs">
+      <Link>Zip\Encryption\ZipAESStream.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Encryption\ZipAESTransform.cs">
+      <Link>Zip\Encryption\ZipAESTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\GZip\GZip.cs">
+      <Link>Zip\GZip\GZip.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\GZip\GZipConstants.cs">
+      <Link>Zip\GZip\GZipConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\GZip\GZipException.cs">
+      <Link>Zip\GZip\GZipException.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\GZip\GzipInputStream.cs">
+      <Link>Zip\GZip\GzipInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\GZip\GzipOutputStream.cs">
+      <Link>Zip\GZip\GzipOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\SharpZipBaseException.cs">
+      <Link>Zip\Checksum\SharpZipBaseException.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\Deflater.cs">
+      <Link>Zip\Zip\Compression\Deflater.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\DeflaterConstants.cs">
+      <Link>Zip\Zip\Compression\DeflaterConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\DeflaterEngine.cs">
+      <Link>Zip\Zip\Compression\DeflaterEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\DeflaterHuffman.cs">
+      <Link>Zip\Zip\Compression\DeflaterHuffman.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\DeflaterPending.cs">
+      <Link>Zip\Zip\Compression\DeflaterPending.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\Inflater.cs">
+      <Link>Zip\Zip\Compression\Inflater.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\InflaterDynHeader.cs">
+      <Link>Zip\Zip\Compression\InflaterDynHeader.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\InflaterHuffmanTree.cs">
+      <Link>Zip\Zip\Compression\InflaterHuffmanTree.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\PendingBuffer.cs">
+      <Link>Zip\Zip\Compression\PendingBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\Streams\DeflaterOutputStream.cs">
+      <Link>Zip\Zip\Compression\Streams\DeflaterOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\Streams\InflaterInputStream.cs">
+      <Link>Zip\Zip\Compression\Streams\InflaterInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\Streams\OutputWindow.cs">
+      <Link>Zip\Zip\Compression\Streams\OutputWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\Compression\Streams\StreamManipulator.cs">
+      <Link>Zip\Zip\Compression\Streams\StreamManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\FastZip.cs">
+      <Link>Zip\Zip\FastZip.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\IEntryFactory.cs">
+      <Link>Zip\Zip\IEntryFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\WindowsNameTransform.cs">
+      <Link>Zip\Zip\WindowsNameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipConstants.cs">
+      <Link>Zip\Zip\ZipConstants.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipEntry.cs">
+      <Link>Zip\Zip\ZipEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipEntryFactory.cs">
+      <Link>Zip\Zip\ZipEntryFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipException.cs">
+      <Link>Zip\Zip\ZipException.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipExtraData.cs">
+      <Link>Zip\Zip\ZipExtraData.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipFile.cs">
+      <Link>Zip\Zip\ZipFile.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipHelperStream.cs">
+      <Link>Zip\Zip\ZipHelperStream.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipInputStream.cs">
+      <Link>Zip\Zip\ZipInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipNameTransform.cs">
+      <Link>Zip\Zip\ZipNameTransform.cs</Link>
+    </Compile>
+    <Compile Include="..\CSharpBrotli_NetCoreTest\Zip\Zip\ZipOutputStream.cs">
+      <Link>Zip\Zip\ZipOutputStream.cs</Link>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +200,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,13 +216,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Visual Studio 2015\Projects\SrcSamples\src\ICSharpCode.SharpZLib.csproj">
-      <Project>{0e7413ff-eb9e-4714-acf2-be3a6a7b2ffd}</Project>
-      <Name>ICSharpCode.SharpZLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CSharpBrotli\CSharpBrotli.csproj">
-      <Project>{50443cb1-3712-49a1-bbf8-91a31d0c4ba1}</Project>
-      <Name>CSharpBrotli</Name>
+    <ProjectReference Include="..\CSharpBrotli_Portable\CSharpBrotli_Portable.csproj">
+      <Project>{35741ece-938b-49cd-b23a-6b4dfb232273}</Project>
+      <Name>CSharpBrotli_Portable</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

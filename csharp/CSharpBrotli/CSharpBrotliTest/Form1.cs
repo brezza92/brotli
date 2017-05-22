@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CSharpBrotliTest
@@ -20,7 +16,7 @@ namespace CSharpBrotliTest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] args = { "../../test_data.zip" };
+            string[] args = { "../../../test_data.zip" };
             CheckBundle(args);
             Console.WriteLine("decode test_data.zip successfully.");
         }
@@ -44,8 +40,11 @@ namespace CSharpBrotliTest
             for (int i = argsOffset; i < args.Length; i++)
             {
                 byte[] data = File.ReadAllBytes(args[i]);
-                MemoryStream input = new MemoryStream(data);
-                new BundleChecker(input, 0, sanityCheck).Check();
+                using (MemoryStream input = new MemoryStream(data))
+                {
+                    new BundleChecker(input, 0, sanityCheck).Check();
+                }
+
             }
         }
     }
